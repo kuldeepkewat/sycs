@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="RegForm" onsubmit="return validate()" method="post">
+        First Name : <input type="text" name="fname"><br>
+        Last Nmae : <input  name="text" name="lname"> <br>
+        E-mail : <input type="email" name="emailid"><br>
+        Gender : <br><input type="radio" name="gender">Male<br>
+        <input type="radio" name="gender">Female<br>
+        <input type="radio" name="gender">Transgender<br>
+        stream :<select name="stream">
+            <option value="cs">CS</option>
+            <option value="saab">IT</option>
+            <option value="mercedes">B.Com</option>
+            <option value="audi">BA</option>
+          </select><br>
+       <input type="submit" value="submit">
+       <script type="text/javascript">
+        function validate()
+        {
+            var fname=document.forms["RegForm"]["fname"];
+            if (fname.value==" ")
+            {
+                alter("pleas enter your name");
+                fname.focus();
+                return false;
+            }
+            var stream=document.forms["RegForm"]["stream"];
+            if(stream SelectedIndex < 1)
+            {
+                alter("pleas select your stream");
+                stream.focus();
+                return false;
+            }
+            return true;
+          
+        }
+       </script> 
+</body>
+</html>
