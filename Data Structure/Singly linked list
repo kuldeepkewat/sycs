@@ -1,1 +1,39 @@
 
+class node:
+	def __init__(self,dataval=None):
+		self.dataval=dataval
+		self.nextval=None
+	
+class slinklist:
+	def __init__(self):
+		self.headval=None
+
+	def printlist(self):
+		printval=self.headval
+		while printval is not None:
+			print(printval.dataval)
+			printval=printval.nextval
+			
+	def at_begin(self,NewNode):
+		NewNode=node(NewNode)
+		NewNode.nextval=self.headval
+		self.headval=NewNode
+		
+	def at_end(self,newnode):
+		newnode=node(newnode)
+		if self.headval is None:
+			self.headval=newnode
+			return
+		last_one=self.headval
+		while (last_one.nextval):
+			last_one=last_one.nextval
+		last_one.nextval=newnode
+		
+		
+list1=slinklist()
+list1.headval=node("mon")
+e2=node("tue")
+list1.headval.nextval=e2
+list1.at_begin("Sun")
+list1.at_end("Wed")
+list1.printlist()
