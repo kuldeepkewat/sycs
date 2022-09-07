@@ -28,6 +28,18 @@ class DLinkedList:
 
     self.head=self.head.next
     self.head.prev=None
+    
+    	def DeleteAtEnd(self):
+    if self.head is None:
+      print("you can't delete node")
+      return
+    if self.head.next is None:
+      self.head=None
+    else:
+    n=self.head 
+    while self.head.next is not None:
+      n=n.self.head
+    n.prev.next=None
 
 list1=DLinkedList()
 list1.insert_n("utdud")
