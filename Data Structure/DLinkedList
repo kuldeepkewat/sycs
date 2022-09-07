@@ -17,6 +17,17 @@ class DLinkedList:
 		while printval is not None:
 			print(printval.data)
 			printval=printval.next
+	
+	def DeleteAtStart(self):
+    if self.head is None:
+      print("you can't delete node")
+      return
+    if self.head.next is None:
+      self.head=None
+      return
+
+    self.head=self.head.next
+    self.head.prev=None
 
 list1=DLinkedList()
 list1.insert_n("utdud")
