@@ -1,1 +1,66 @@
 
+JButton pb (JButton)ae.getSource(); if(pb-btnClear)
+
+{ r-n1-n2=0; res.setText(""); }
+
+else
+
+if(pb-btnEquals) { n2=Integer.parseInt(res.getText()); eval(); res.setText(""+r);
+
+}
+
+else
+
+{ boolean opf-false; if(pb-btnPlus) {op='+':
+
+opf=true:
+
+} if(pb= btnMinus)
+
+{op='-:opf=true;} if(pb==btnMultiply)
+
+{op="*":opf=true:} if(ob= btnDivide)
+{op="/;opf=true; }
+
+if(opf false)
+
+{
+
+{
+
+for(i=0;i<10;i++) if(pb= b[i]) { String t=res.getText(); t+=i; res.setText(t);
+
+}
+
+}
+
+else
+
+{
+
+n1 Integer.parseInt(res.getText()); res.setText("");
+
+}
+
+int eval(
+
+{
+
+switch(op)
+case '+': rn1+n2; break;
+
+case '-': r-n1-n2; break;
+
+case 1*1.
+
+r-n1*n2: break;
+
+case '/':
+
+}
+
+r-n1/n2; break;
+
+return 0;
+
+public static void main(String[] args) { // TODO code application logic here new Calculator();
