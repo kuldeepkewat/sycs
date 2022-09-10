@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        document.write("Maximum among 15"+Math.max(15,20)+"<br>");
+        document.write("Area of circle with radias 3"+ Math.PI*3*3+"<br>");
+        document.write(Math.pow(3,4)+"<br>");
+
+        var d=new Date();
+        document.write("year is"+d.getFullYear()+"<br>");
+        document.write("math is"+d.getMath()+"<br>");
+        document.write("math is"+d.getHours()+"<br>");
+        document.write("math is"+d.getMilliseconds()+"<br>");
+        document.write("math is"+d.getSeconds()+"<br>");
+
+        document.write("App name is"+navigator.appName+"<br>");
+        document.write("App name is"+navigator.product+"<br>");
+        document.write("App name is"+navigator.platform+"<br>");
+        document.write("App name is"+navigator.language+"<br>");
+        document.write("App name is"+navigator.appVersion+"<br>");
+    </script>
+</body>
+</html>
