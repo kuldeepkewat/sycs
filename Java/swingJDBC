@@ -1,0 +1,229 @@
+package swingjdbcex;
+import java.awt.event.*;
+import java.awt.*;
+import javax.swing.*;
+import java.sql.*;
+
+public class SwingJDBCEx extends JFrame implements ActionListener
+{
+public static final String DBURL = "jdbc:oracle:thin:@localhost:49698:XE";
+public static final String DBUSER = "student";
+public static final String DBPASS = "student";
+
+//JFrame main_frame;
+
+JLabel Iblid, Iblname, Iblemail, Iblcity;
+JTextField txtid, txtname, txtemail, txtcity;
+JButton btnSubmit, btnreset, btnshow, btnDelete;       
+//btnUpdate;
+public static int id;
+
+public static String name, email,city;
+public Swing JDBCEX()
+{
+super("Employee Form");
+setLayout(new BorderLayout());
+JPanel p=new JPanel();
+p.setLayout(new GridLayout(4,4));
+
+Iblid = new JLabel("ID");
+
+Iblname = new JLabel("Name");
+Iblemail = new JLabel("EMail");
+Iblcity = new JLabel("City");
+
+Iblid.setBounds(50,20,300,30);
+Iblname.setBounds(50,50,300,30);
+Iblemail.setBounds(50,80,300,30);
+Iblcity.setBounds(50,100,300,30);
+txtid = new JTextField();
+
+txtname = new JTextField();
+
+txtemail = new JTextField();
+txtcity = new JTextField();
+txtid.setBounds(175,10,300,30);
+txtname.setBounds(175,40,300,30);
+txtemail.setBounds(175,70,300,30);
+txtcity.setBounds(175,100,300,30);
+
+btnSubmit = new JButton("Submit");
+btnreset = new JButton("Reset");
+btnshow = new JButton("show");
+//btnUpdate = new JButton("Update");
+
+btnDelete = new JButton("Delete");
+
+btnSubmit.setBounds(50, 200, 100,30);
+btnshow.setBounds(175,200, 100,30);
+btnDelete.setBounds(300, 200, 100,30);
+//btnUpdate.setBounds(450,250,100,30);
+
+btnreset.setBounds(420,200, 100,30);
+
+add(lblid);
+add(lblname);
+add(Iblemail);
+add(Iblcity);
+add(txtid);
+add(txtname);
+add(txtemail);
+add(txtcity);
+add(btnSubmit);
+add(btnreset);
+//add(btnUpdate);
+add(btnshow);
+add(btnDelete);
+btnSubmit.addActionListener(this);
+btnreset.addActionListener(this);
+btnshow.addActionListener(this); 
+btnDelete.addActionListener(this);
+// btnUpdate.addActionListener(this); 
+setLayout(null); 
+setVisible(true);
+setSize(600,300);
+setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+
+}
+
+public void actionPerformed (ActionEvent ae)
+{
+JButton pb=(JButton)ae.getSource();
+if(pb==btnSubmit)
+{
+btnSubmit_ActionPerformed();
+}
+
+else if(pb==btnshow)
+{
+btnshow_Action Performed();
+}
+
+else if(pb==btnDelete)
+{
+btnDelete_ActionPerformed();
+}
+
+else
+{
+txtid.setText("");
+txtname.setText("");
+txtemail.setText("");
+txtcity.setText("");
+}
+}
+private void btnSubmit_ActionPerformed()
+{
+id=Integer.parseInt(txtid.getText());
+name=(txtname.getText());
+email=(txtemail.getText());
+city=(txtcity.getText());
+try
+{
+
+//1. Create "Emp" table
+//Create table emp (emp_id number, empname varchar2(10), email varchar2(30), city varchar2(10));
+//Loading the driver
+
+Class.forName("oracle.jdbc.driver.Oracle Driver");
+// Create the connection object
+Connection con = DriverManager.getConnection(DBURL, DBUSER, DBPASS);
+//Insert the record
+String sql = "INSERT INTO emp (emp_id, empname, email, city) VALUES (?, ?, ?, ?)";
+PreparedStatement statement = con.prepareStatement(sql);
+statement.setInt(1, id);
+statement.setString(2, name);
+statement.setString(3, email);
+statement.setString(4, city);
+int rowsInserted = statement.executeUpdate();
+
+if (rowsInserted > 0)
+System.out.println("A new employee was inserted successfully!\n");
+
+
+
+
+
+
+txtid.setText("");
+txtname.setText("");
+txtemail.setText("");
+txtcity.setText("");
+}
+catch(Exception ex)
+{
+ex.printStackTrace();
+}
+}
+private void btnshow_ActionPerformed()
+{
+try
+{
+//1. Create "Emp" table
+//Create table emp (emp_id number, empname varchar2(10), email varchar2(30), city varchar2(10));
+//Loading the driver
+
+Class.forName("oracle.jdbc.driver.Oracle Driver");
+
+//Cretae the connection object
+Connection con= DriverManager.getConnection(DBURL, DBUSER, DBPASS);
+
+// Display the record
+String sql = "SELECT * FROM Emp";
+Statement stmt = con.createStatement();
+ResultSet result = stmt.executeQuery(sql1);
+while (result.next())
+{
+System.out.println (result.getInt("emp_id")+" "+result.getString("empname")+" "+ result.getString(3)+" "+ result.getString(4));
+}
+
+//con.close(); 
+}
+catch(Exception ex)
+{
+ex.printStackTrace();
+}
+}
+private void btnDelete_ActionPerformed()
+{
+id=Integer.parseInt(txtid.getText());
+
+try
+{
+//Loading the driver
+Class.forName("oracle.jdbc.driver.Oracle Driver");
+//Cretae the connection object
+Connection con = DriverManager.getConnection (DBURL, DBUSER, DBPASS);
+//Delete the record
+
+String sql3 = "DELETE FROM Emp WHERE emp_id=?"; 
+PreparedStatement statement1 = con.prepareStatement(sql3); 
+statement1.setInt(1, id);
+
+int rows Deleted = statement1.executeUpdate();
+
+if (rowsDeleted > 0)
+{
+System.out.println("A Employee was deleted successfully!\n");
+}
+}
+
+else
+
+System.out.println("No Record found!\n");
+
+//con.close();
+}
+catch(Exception ex)
+{
+ex.printStackTrace();
+
+}
+
+}
+
+public static void main(String[] args)
+{
+new Swing JDBCEx();
+}
+}
