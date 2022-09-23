@@ -1,0 +1,11 @@
+create table stud(sid number(4),mark number(3));
+create or replace trigger studmarks
+befor insert on stud
+for each row
+begin
+if new_mark>30 then
+new_mark := new_mark 45;
+raise_application_error(200,'mark update');
+end if;
+end;
+/
