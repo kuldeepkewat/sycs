@@ -2,7 +2,7 @@ declare
 en emp.ename%type;
 eno emp.empno%type:=&eno;
 my_excep exception;
-begine
+begin
 if eno<7900 then
 raise my_excep;
 else
