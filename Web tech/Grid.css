@@ -1,0 +1,57 @@
+.bg{
+    background-color:#ff0049;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    diplay:grid;
+    grid-gap:10px;
+}
+
+.banner{
+    background-color:#ffbd15;
+    height: 10%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+.game{
+    background-color:#50ff00;
+    height: 10%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.flickity{
+    background-color:#85ff15;
+    height: 20%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+.gametype{
+    background-color:#15ffe0;
+    height: 5%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+.games{
+    background-color:#1523ff;
+    height: 655%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    
+    display:grid;
+    grid-template-columns:105px 150px 200px;
+    grid-gap:10px;
+}
+.g{
+background-color:#ffbfea;
+    height: 100px;
+    width: 60px;
+   display:grid; 
+}
+ 
